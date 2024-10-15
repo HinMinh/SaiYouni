@@ -1,14 +1,25 @@
 # Agenda Phát Triển Game Week 2
 
 ## 1. Kể Tên 3 Hàm Màu Xanh (Blue) Mà Unity Sẽ Tự Động Gọi
+1.Start()
+2.Update()
+3.onCollisionEnter()
 
 ## 2. Kể Tên 5 Loại Giải Thuật Sắp Xếp Khác Nhau
+1.Bubble Sort
+2.Insertion Sort
+3.Quick Sort
+4.Merge Sort
+5.Heap Sort
 
 ## 3. Dùng Một Giải Thuật Sắp Xếp Khác Để Thay Cho Giải Thuật Trong Buổi Học
+Quick Sort
 
 ## 4. Thực Hiện Random Cho Current HP
 
 - Sử dụng code để thực hiện random cho giá trị **Current HP** của nhân vật hoặc đối tượng trong game.
+
+
 
 ## 5. Tìm Enemy Có Current HP Nhỏ Nhất
 

@@ -4,29 +4,76 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int maxHp;
+    public int currentHp;
+    public float weight;
+    public string enemyName;
+    public float speed = 2.0f;
 
-    // 5 Enemies variables
+    private string[] enemyNames = { "Goblin", "Orc", "Troll", "Vampire", "Zombie" };
 
-    //variables 1 
+    public Enemy(int maxHp, int currentHp, float weight, string enemyName, float speed)
+    {
+        this.maxHp = maxHp;
+        this.currentHp = currentHp;
+        this.weight = weight;
+        this.enemyName = enemyName;
+        this.speed = speed;
+    }
 
-    //variables 2
+    public Enemy(int maxHp) { this.maxHp = maxHp; }
 
-    //variables 3 
+    public Enemy() { }
 
-    //variables 4 
+    void Awake()
+    {
+        SetRandomHp();
+        SetRandomName();
+        SetRandomWeight();
+    }
 
-    //variables 5 
+    void Move()
+    {
+        Debug.Log(enemyName + " is moving with speed: " + speed);
+    }
 
+    public void TakeDamage(int damage)
+    {
+        currentHp -= damage;
+        Debug.Log(enemyName + " took " + damage + " damage. Remaining HP: " + currentHp);
 
-    // 5 Enemies methods
+        if (!IsAlive())
+        {
+            Die();
+        }
+    }
 
-    //Method 1
+    void Die()
+    {
+        Debug.Log(enemyName + " has died.");
+        Destroy(gameObject);
+    }
 
-    //Method 2
+    void SetRandomName()
+    {
+        this.enemyName = enemyNames[Random.Range(0, enemyNames.Length)];
+        Debug.Log("New enemy named: " + this.enemyName);
+    }
 
-    //Method 3
+    void SetRandomWeight()
+    {
+        this.weight = Random.Range(40.0f, 100.0f);
+        Debug.Log(this.enemyName + " has a weight of: " + this.weight + " kg.");
+    }
 
-    //Method 4
+    void SetRandomHp()
+    {
+        this.maxHp = Random.Range(1, 100);
+        Debug.Log(this.maxHp + " has: " + this.maxHp);
+    }
 
-    //Method 5
+    bool IsAlive()
+    {
+        return currentHp > 0;
+    }
 }
